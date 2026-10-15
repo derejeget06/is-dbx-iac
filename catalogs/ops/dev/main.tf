@@ -1,3 +1,10 @@
+terraform {
+  required_providers {
+    databricks = {
+      source = "databricks/databricks"
+    }
+  }
+}
 # 1. Keep your existing catalog module
 module "ops_catalog" {
   source = "../../../modules/catalogs"
@@ -17,5 +24,5 @@ module "ops_schema" {
   environment  = "dev"
   comment      = "Operational dev schema for data pipelines"
 
-  depends_on = [modules.ops_catalog]
+  depends_on = [module.ops_catalog]
 }
