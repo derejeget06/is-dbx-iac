@@ -3,13 +3,14 @@ terraform {
     databricks = {
       source = "databricks/databricks"
     }
-    backend "s3" {
-      bucket = "dbx-s3-bucket-947247293170-us-east-1-an"
-      key    = "terraform/ops-dev/terraform.tfstate"
-      region = "us-east-1"
-    }
+  }
+  backend "s3" {
+    bucket = "dbx-s3-bucket-947247293170-us-east-1-an"
+    key    = "terraform/ops-dev/terraform.tfstate"
+    region = "us-east-1"
   }
 }
+
 # Fetch service principals dynamically
 data "databricks_service_principal" "sp" {
   for_each       = toset(var.service_principal_app_ids)
