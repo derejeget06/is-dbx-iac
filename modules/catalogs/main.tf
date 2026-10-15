@@ -17,14 +17,7 @@ data "databricks_user" "users" {
   user_name = each.value
 }
 
-# Catalog definition
-resource "databricks_catalog" "this" {
-  name    = var.catalog_name
-  comment = var.catalog_comment
-  properties = {
-    purpose = var.environment
-  }
-}
+
 
 # Grant read/usage access to service principals
 resource "databricks_grants" "catalog_sp_grants" {
@@ -40,6 +33,8 @@ resource "databricks_grants" "catalog_sp_grants" {
     }
   }
 }
+
+# Catalog definition
 resource "databricks_catalog" "this" {
   name             = var.catalog_name
   comment          = "Managed via Terraform"
