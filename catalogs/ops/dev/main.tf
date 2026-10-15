@@ -1,10 +1,3 @@
-terraform {
-  required_providers {
-    databricks = {
-      source = "databricks/databricks"
-    }
-  }
-}
 # 1. Keep your existing catalog module
 module "ops_catalog" {
   source = "../../../modules/catalogs"
