@@ -4,11 +4,6 @@ terraform {
       source = "databricks/databricks"
     }
   }
-  backend "s3" {
-    bucket = "dbx-s3-bucket-947247293170-us-east-1-an"
-    key    = "terraform/ops-dev/terraform.tfstate"
-    region = "us-east-1"
-  }
 }
 
 # Fetch service principals dynamically
@@ -43,7 +38,7 @@ resource "databricks_grants" "catalog_sp_grants" {
 # Catalog definition
 resource "databricks_catalog" "this" {
   name          = var.catalog_name
-  comment       = "Managed via Terraform"
+  comment       = var.catalog_comment
   force_destroy = false
   storage_root  = "s3://dbx-s3-bucket-947247293170-us-east-1-an"
 
