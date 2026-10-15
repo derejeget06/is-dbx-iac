@@ -28,6 +28,8 @@ resource "databricks_catalog" "this" {
 
 # Grant read/usage access to service principals
 resource "databricks_grants" "catalog_sp_grants" {
+  count = length(var.service_principal_app_ids) > 0 ? 1 : 0
+
   catalog = databricks_catalog.this.name
 
   dynamic "grant" {
