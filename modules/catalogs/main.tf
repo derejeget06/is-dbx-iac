@@ -39,7 +39,7 @@ resource "databricks_catalog" "this" {
   name             = var.catalog_name
   comment          = "Managed via Terraform"
   force_destroy    = false
-  storage_location = "s3://dbx-s3-bucket-947247293170-us-east-1-an"
+  managed_location = "s3://dbx-s3-bucket-947247293170-us-east-1-an"
 
   properties = {
     purpose = var.purpose
