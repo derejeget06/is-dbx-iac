@@ -1,3 +1,10 @@
+terraform {
+  required_providers {
+    databricks = {
+      source = "databricks/databricks"
+    }
+  }
+}
 # Fetch service principals dynamically
 data "databricks_service_principal" "sp" {
   for_each       = toset(var.service_principal_app_ids)
