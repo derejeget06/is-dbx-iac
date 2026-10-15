@@ -18,7 +18,11 @@ variable "service_principal_app_ids" {
   default     = []
   description = "List of Application IDs for Databricks service principals"
 }
-
+variable "purpose" {
+  type        = string
+  description = "Purpose or environment tag for the catalog"
+  default     = "dev"
+}
 variable "user_emails" {
   type        = list(string)
   default     = []
