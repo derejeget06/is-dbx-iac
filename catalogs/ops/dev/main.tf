@@ -12,7 +12,7 @@ module "ops_catalog" {
 module "ops_schema" {
   source = "../../../modules/schemas"
 
-  catalog_name = modules.ops_catalog.catalog_id # Or var.catalog_name
+  catalog_name = module.ops_catalog.catalog_id # Or var.catalog_name
   schema_name  = var.schema_name
   environment  = "dev"
   comment      = "Operational dev schema for data pipelines"

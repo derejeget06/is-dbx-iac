@@ -24,3 +24,19 @@ variable "user_emails" {
   default     = []
   description = "List of user emails requiring catalog access"
 }
+variable "catalog_name" {
+  type = string
+}
+
+variable "schema_name" {
+  type = string
+}
+
+variable "environment" {
+  type = string
+}
+
+variable "comment" {
+  type    = string
+  default = ""
+}
