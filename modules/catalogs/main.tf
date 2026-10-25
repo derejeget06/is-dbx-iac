@@ -9,9 +9,9 @@ terraform {
   }
 }
 
-provider "databricks" {
-  // Configured via environment variables (DATABRICKS_HOST & DATABRICKS_TOKEN)
-}
+# provider "databricks" {
+#   // Configured via environment variables (DATABRICKS_HOST & DATABRICKS_TOKEN)
+# }
 
 # Fetch service principals dynamically
 data "databricks_service_principal" "sp" {
