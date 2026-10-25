@@ -1,9 +1,16 @@
 terraform {
+  required_version = ">= 1.0.0"
+
   required_providers {
     databricks = {
-      source = "databricks/databricks"
+      source  = "databricks/databricks"
+      version = "1.137.0" // Or your desired version constraint
     }
   }
+}
+
+provider "databricks" {
+  // Configured via environment variables (DATABRICKS_HOST & DATABRICKS_TOKEN)
 }
 
 # Fetch service principals dynamically
